@@ -51,7 +51,13 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        return allJobs;
+        /**
+         * Return a copy of allJobs
+         */
+
+        ArrayList<HashMap<String, String>> allJobsClone = (ArrayList<HashMap<String, String>>) allJobs.clone();
+
+        return allJobsClone;
     }
 
     /**
@@ -74,7 +80,7 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            String aValue = row.get(column).toLowerCase();
 
             if (aValue.contains(value)) {
                 jobs.add(row);
