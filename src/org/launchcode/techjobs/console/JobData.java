@@ -104,8 +104,8 @@ public class JobData {
 
         // Iterate through each row of allJobs
         for (HashMap<String, String> job : allJobs) {
-            for(String key : job.keySet()) {
-                if (job.get(key).contains(value)) {
+            for(String row : job.keySet()) {
+                if (job.get(row).toLowerCase().contains(value)) {
                     jobs.add(job);
                 }
             }

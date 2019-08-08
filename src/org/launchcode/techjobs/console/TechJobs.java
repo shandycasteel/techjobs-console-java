@@ -58,7 +58,7 @@ public class TechJobs {
 
                 // What is their search term?
                 System.out.println("\nSearch term: ");
-                String searchTerm = in.nextLine();
+                String searchTerm = in.nextLine().toLowerCase();
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
@@ -68,6 +68,7 @@ public class TechJobs {
             }
         }
     }
+
 
     // ﻿Returns the key of the selected item from the choices Dictionary
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
@@ -108,23 +109,22 @@ public class TechJobs {
         return choiceKeys[choiceIdx];
     }
 
+
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-        if (someJobs.size() >= 1) {
-            for (int i = 0; i < someJobs.size(); i++) {
 
+        if (someJobs.size() > 0) {
+            for (HashMap<String, String> job : someJobs) {
                 System.out.println("*****");
-
-                for (HashMap.Entry<String, String> job : someJobs.get(i).entrySet()) {
-                    System.out.println(job.getKey() + ": " + job.getValue());
-                }
-
+                for(String row : job.keySet()) {
+                    System.out.println(row + ": " + job.get(row));
+            }
                 System.out.println("*****\n");
             }
-
         } else {
                 System.out.println("\nThere are no results, try changing your search criteria.");
         }
+
 
     }
 }
