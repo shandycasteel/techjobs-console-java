@@ -85,6 +85,38 @@ public class JobData {
     }
 
     /**
+     * Second assignment requirement: Create Method findByValue
+     *
+     * Returns results of search through jobs data by search term, filtering out duplicate listings:
+     * If a listing has position type "Web - Front End" and name "Front end web dev" then searching for "web" does
+     * not return the listing twice.
+     *
+     * @param value Value of the field to search for
+     * @return List of all jobs matching the criteria
+     */
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+
+        // Load data if not loaded
+        loadData();
+
+        // Create and declare a new ArrayList jobs that contains a HashMap with key-value Strings
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        // Iterate through each row of allJobs
+        for (HashMap<String, String> job : allJobs) {
+            for(String key : job.keySet()) {
+                if (job.get(key).contains(value)) {
+                    jobs.add(job);
+                }
+            }
+
+        }
+
+        return jobs;
+    }
+
+
+    /**
      * Read in data from a CSV file and store it in a list
      */
     private static void loadData() {
