@@ -10,6 +10,8 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by LaunchCode
@@ -42,6 +44,13 @@ public class JobData {
                 values.add(aValue);
             }
         }
+
+        Collections.sort(values, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.toLowerCase().compareTo(o2.toLowerCase());
+            }
+        });
 
         return values;
     }
