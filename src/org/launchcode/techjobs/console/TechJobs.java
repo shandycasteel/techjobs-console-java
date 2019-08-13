@@ -110,6 +110,13 @@ public class TechJobs {
     }
 
 
+    private static void printJobsLoop(HashMap<String, String> job) {
+
+        for (String row : job.keySet()) {
+            System.out.println(row + ": " + job.get(row));
+        }
+    }
+
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
@@ -117,9 +124,9 @@ public class TechJobs {
             System.out.println();
             for (HashMap<String, String> job : someJobs) {
                 System.out.println("-----");
-                for(String row : job.keySet()) {
-                    System.out.println(row + ": " + job.get(row));
-            }
+
+                printJobsLoop(job);
+
                 System.out.println("-----\n");
             }
         } else {

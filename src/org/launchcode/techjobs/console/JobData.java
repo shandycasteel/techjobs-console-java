@@ -47,8 +47,8 @@ public class JobData {
 
         Collections.sort(values, new Comparator<String>() {
             @Override
-            public int compare(String o1, String o2) {
-                return o1.toLowerCase().compareTo(o2.toLowerCase());
+            public int compare(String valueOne, String valueTwo) {
+                return valueOne.toLowerCase().compareTo(valueTwo.toLowerCase());
             }
         });
 
